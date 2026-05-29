@@ -27,17 +27,17 @@ DOCKERCFG="$(printf '{"auths":{"cp.icr.io":{"auth":"%s"}}}' "${ENC}" | base64 | 
 vault kv put secret/mas/drroc4/entitlement \
   image_pull_secret_b64="${DOCKERCFG}"
 
-vault kv put secret/mas/drroc4/drmasapp/superuser \
+vault kv put secret/mas/drroc4/drgitopsapp/superuser \
   username="superuser" \
   password="${MAS_SUPERUSER_PASSWORD}"
 
-vault kv put secret/mas/drroc4/drmasapp/jdbc-system \
+vault kv put secret/mas/drroc4/drgitopsapp/jdbc-system \
   username="${JDBC_USERNAME}" \
   password="${JDBC_PASSWORD}" \
   jdbc_url="${JDBC_URL}" \
   ca.crt="${JDBC_CA_CRT:-}"
 
-vault kv put secret/mas/drroc4/drmasapp/manage-crypto \
+vault kv put secret/mas/drroc4/drgitopsapp/manage-crypto \
   cryptoKey="${MANAGE_CRYPTO_KEY}" \
   cryptoxKey="${MANAGE_CRYPTOX_KEY}"
 

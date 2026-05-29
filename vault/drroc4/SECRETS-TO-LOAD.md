@@ -1,4 +1,4 @@
-# Vault secrets required for MAS + Manage drroc4/drmasapp
+# Vault secrets required for MAS + Manage drroc4/drgitopsapp
 
 Use Vault KV v2 with mount path `secret`.
 
@@ -27,7 +27,7 @@ The value must be base64 of Docker config JSON, not the raw entitlement token.
 Path:
 
 ```text
-secret/data/mas/drroc4/drmasapp/license
+secret/data/mas/drroc4/drgitopsapp/license
 ```
 
 Keys:
@@ -45,7 +45,7 @@ Confirm whether the IBM chart expects base64 file content or plain value for you
 Path:
 
 ```text
-secret/data/mas/drroc4/drmasapp/superuser
+secret/data/mas/drroc4/drgitopsapp/superuser
 ```
 
 Keys:
@@ -62,7 +62,7 @@ Keys:
 Path:
 
 ```text
-secret/data/mas/drroc4/drmasapp/sls
+secret/data/mas/drroc4/drgitopsapp/sls
 ```
 
 Keys:
@@ -78,7 +78,7 @@ Keys:
 Path:
 
 ```text
-secret/data/mas/drroc4/drmasapp/certs
+secret/data/mas/drroc4/drgitopsapp/certs
 ```
 
 Keys:
@@ -96,7 +96,7 @@ Keys:
 Path:
 
 ```text
-secret/data/mas/drroc4/drmasapp/jdbc-system
+secret/data/mas/drroc4/drgitopsapp/jdbc-system
 ```
 
 Keys:
@@ -117,7 +117,7 @@ This must be finalized from the existing `JDBCCfg` export.
 Only if the existing/current JDBCCfg confirms Manage should use wsapp-level JDBC:
 
 ```text
-secret/data/mas/drroc4/drmasapp/jdbc-wsapp-drmaswks-manage
+secret/data/mas/drroc4/drgitopsapp/jdbc-wsapp-drmaswks-manage
 ```
 
 Keys:
@@ -136,7 +136,7 @@ Keys:
 Path:
 
 ```text
-secret/data/mas/drroc4/drmasapp/manage-crypto
+secret/data/mas/drroc4/drgitopsapp/manage-crypto
 ```
 
 Keys:

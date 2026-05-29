@@ -19,7 +19,7 @@ Copy this content to your `mas-gitops-config` repo on branch `drroc4`.
 ```bash
 git checkout drroc4
 git add .
-git commit -m "Add drroc4 drmasapp MAS GitOps config"
+git commit -m "Add drroc4 drgitopsapp MAS GitOps config"
 git push origin drroc4
 ```
 
@@ -88,8 +88,8 @@ oc get applicationsets -n openshift-gitops
 Expected namespaces after sync:
 
 ```text
-mas-drmasapp-core
-mas-drmasapp-manage
+mas-drgitopsapp-core
+mas-drgitopsapp-manage
 ```
 
 Commands:
@@ -98,9 +98,9 @@ Commands:
 oc get suite -A
 oc get workspace -A
 oc get manageworkspace -A
-oc get pods -n mas-drmasapp-core
-oc get pods -n mas-drmasapp-manage
-oc get route -A | grep -i drmasapp
+oc get pods -n mas-drgitopsapp-core
+oc get pods -n mas-drgitopsapp-manage
+oc get route -A | grep -i drgitopsapp
 ```
 
 ## Do not deploy yet if

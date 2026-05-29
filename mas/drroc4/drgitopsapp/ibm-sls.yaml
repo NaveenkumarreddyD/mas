@@ -1,4 +1,4 @@
-merge-key: "mas/drroc4/drmasapp"
+merge-key: "mas/drroc4/drgitopsapp"
 
 ibm_sls:
   # Confirm current/target SLS channel before deploy.
@@ -8,10 +8,10 @@ ibm_sls:
   storageClass: CHANGE_ME_RWO_STORAGE_CLASS
 
   # MAS license file content, stored in Vault.
-  sls_entitlement_file: "<path:secret/data/mas/drroc4/drmasapp/license#license_file>"
+  sls_entitlement_file: "<path:secret/data/mas/drroc4/drgitopsapp/license#license_file>"
 
   # IBM image pull secret.
   ibm_entitlement_key: "<path:secret/data/mas/drroc4/entitlement#image_pull_secret_b64>"
 
   # Optional. Use if your SLS setup requires a registration key.
-  registration_key: "<path:secret/data/mas/drroc4/drmasapp/sls#registration_key>"
+  registration_key: "<path:secret/data/mas/drroc4/drgitopsapp/sls#registration_key>"

@@ -1,4 +1,4 @@
-# MAS GitOps Config - drroc4 / drmasapp / Vault Pattern
+# MAS GitOps Config - drroc4 / drgitopsapp / Vault Pattern
 
 This repository content is for the `drroc4` branch of `mas-gitops-config`.
 
@@ -8,9 +8,9 @@ This repository content is for the `drroc4` branch of `mas-gitops-config`.
 account id:       mas
 region id:        lac1
 cluster id:       drroc4
-MAS instance id:  drmasapp
-expected core ns: mas-drmasapp-core
-expected manage:  mas-drmasapp-manage
+MAS instance id:  drgitopsapp
+expected core ns: mas-drgitopsapp-core
+expected manage:  mas-drgitopsapp-manage
 ```
 
 ## Active IBM MAS GitOps config tree
@@ -21,7 +21,7 @@ mas/drroc4/
 ├── ibm-operator-catalog.yaml
 ├── redhat-cert-manager.yaml
 ├── ibm-dro.yaml
-└── drmasapp/
+└── drgitopsapp/
     ├── ibm-mas-instance-base.yaml
     ├── ibm-sls.yaml
     ├── ibm-mas-suite.yaml

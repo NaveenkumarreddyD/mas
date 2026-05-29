@@ -14,7 +14,7 @@ Your current cluster discovery showed:
 ```text
 ManageWorkspace version 8.7.24
 jdbc: system
-JDBCCfg resources in mas-drmasapp-core
+JDBCCfg resources in mas-drgitopsapp-core
 No current requirement to use Db2U
 ```
 
@@ -23,8 +23,8 @@ Therefore this template intentionally omits active Db2U files. The correct path 
 Before production, export:
 
 ```powershell
-oc get jdbccfg drmasapp-jdbc-system -n mas-drmasapp-core -o yaml
-oc get jdbccfg drmasapp-jdbc-wsapp-drmaswks-manage -n mas-drmasapp-core -o yaml
+oc get jdbccfg drgitopsapp-jdbc-system -n mas-drgitopsapp-core -o yaml
+oc get jdbccfg drgitopsapp-jdbc-wsapp-drmaswks-manage -n mas-drgitopsapp-core -o yaml
 ```
 
 Then map the confirmed fields into GitOps.

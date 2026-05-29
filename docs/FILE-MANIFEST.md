@@ -9,13 +9,13 @@
 - `docs/DEPLOYMENT-STEPS.md`
 - `docs/SECRETS-CHECKLIST.md`
 - `docs/WHY-DB2U-OMITTED.md`
-- `mas/drroc4/drmasapp/ibm-mas-instance-base.yaml`
-- `mas/drroc4/drmasapp/ibm-mas-masapp-configs.yaml`
-- `mas/drroc4/drmasapp/ibm-mas-masapp-manage-install.yaml`
-- `mas/drroc4/drmasapp/ibm-mas-suite-configs.yaml`
-- `mas/drroc4/drmasapp/ibm-mas-suite.yaml`
-- `mas/drroc4/drmasapp/ibm-mas-workspaces.yaml`
-- `mas/drroc4/drmasapp/ibm-sls.yaml`
+- `mas/drroc4/drgitopsapp/ibm-mas-instance-base.yaml`
+- `mas/drroc4/drgitopsapp/ibm-mas-masapp-configs.yaml`
+- `mas/drroc4/drgitopsapp/ibm-mas-masapp-manage-install.yaml`
+- `mas/drroc4/drgitopsapp/ibm-mas-suite-configs.yaml`
+- `mas/drroc4/drgitopsapp/ibm-mas-suite.yaml`
+- `mas/drroc4/drgitopsapp/ibm-mas-workspaces.yaml`
+- `mas/drroc4/drgitopsapp/ibm-sls.yaml`
 - `mas/drroc4/ibm-dro.yaml`
 - `mas/drroc4/ibm-mas-cluster-base.yaml`
 - `mas/drroc4/ibm-operator-catalog.yaml`
@@ -30,3 +30,5 @@
 - `vault/drroc4/load-secrets-template.sh`
 - `vault/drroc4/setup-vault-kubernetes-auth-template.sh`
 - `vault/drroc4/vault-policy-mas-drroc4.hcl`
+
+- `docs/NAMING-DECISION.md`

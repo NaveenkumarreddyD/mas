@@ -1,4 +1,4 @@
-merge-key: "mas/drroc4/drmasapp"
+merge-key: "mas/drroc4/drgitopsapp"
 
 ibm_mas_masapp_manage_install:
   # Confirm target Manage channel/version. Current discovered runtime was 8.7.24.
@@ -29,8 +29,8 @@ ibm_mas_masapp_manage_install:
   manage_languages_default: EN
   manage_server_timezone: America/Chicago
 
-  manage_crypto_key: "<path:secret/data/mas/drroc4/drmasapp/manage-crypto#cryptoKey>"
-  manage_cryptox_key: "<path:secret/data/mas/drroc4/drmasapp/manage-crypto#cryptoxKey>"
+  manage_crypto_key: "<path:secret/data/mas/drroc4/drgitopsapp/manage-crypto#cryptoKey>"
+  manage_cryptox_key: "<path:secret/data/mas/drroc4/drgitopsapp/manage-crypto#cryptoxKey>"
 
   # Your current setup uses RWX persistent volumes for /jmsstore, /doclinks, /globaldir style mounts.
   # Confirm exact attachment provider expected by IBM chart and current app requirements.
