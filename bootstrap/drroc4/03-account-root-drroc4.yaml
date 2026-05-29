@@ -1,0 +1,49 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root.mas
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  project: mas
+  source:
+    path: root-applications/ibm-mas-account-root
+    repoURL: https://CHANGE_ME_GITLAB/mas-gitops/ibm-mas-gitops.git
+    targetRevision: 8.0.0
+    helm:
+      values: |
+        account:
+          id: mas
+
+        generator:
+          repo_url: https://CHANGE_ME_GITLAB/mas-gitops/mas-gitops-config.git
+          revision: drroc4
+
+        source:
+          repo_url: https://CHANGE_ME_GITLAB/mas-gitops/ibm-mas-gitops.git
+          revision: 8.0.0
+
+        argo:
+          namespace: openshift-gitops
+          projects:
+            rootapps: mas
+            apps: mas
+
+        avp:
+          name: argocd-vault-plugin-helm
+          secret: argocd-vault-plugin-credentials
+          values_varname: HELM_VALUES
+
+        cluster_admin_role: true
+        application_admin_role: true
+        auto_delete: false
+
+        # For fully on-prem, do not run AWS DocumentDB instance user management hooks.
+        disable_docdb_instance_user_management: true
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false

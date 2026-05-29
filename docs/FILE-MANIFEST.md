@@ -1,0 +1,32 @@
+# File manifest
+
+- `.gitignore`
+- `README.md`
+- `bootstrap/drroc4/00-mas-appproject.yaml`
+- `bootstrap/drroc4/01-gitlab-config-repo-secret.example.yaml`
+- `bootstrap/drroc4/02-ibm-source-repo-secret.example.yaml`
+- `bootstrap/drroc4/03-account-root-drroc4.yaml`
+- `docs/DEPLOYMENT-STEPS.md`
+- `docs/SECRETS-CHECKLIST.md`
+- `docs/WHY-DB2U-OMITTED.md`
+- `mas/drroc4/drmasapp/ibm-mas-instance-base.yaml`
+- `mas/drroc4/drmasapp/ibm-mas-masapp-configs.yaml`
+- `mas/drroc4/drmasapp/ibm-mas-masapp-manage-install.yaml`
+- `mas/drroc4/drmasapp/ibm-mas-suite-configs.yaml`
+- `mas/drroc4/drmasapp/ibm-mas-suite.yaml`
+- `mas/drroc4/drmasapp/ibm-mas-workspaces.yaml`
+- `mas/drroc4/drmasapp/ibm-sls.yaml`
+- `mas/drroc4/ibm-dro.yaml`
+- `mas/drroc4/ibm-mas-cluster-base.yaml`
+- `mas/drroc4/ibm-operator-catalog.yaml`
+- `mas/drroc4/redhat-cert-manager.yaml`
+- `openshift-gitops/avp/01-argocd-vault-plugin-credentials.example.yaml`
+- `openshift-gitops/avp/02-cmp-plugin-configmap.yaml`
+- `openshift-gitops/avp/03-tokenreview-rbac.yaml`
+- `openshift-gitops/avp/04-argocd-cr-patch-fragment.yaml`
+- `scripts/export-current-jdbc.ps1`
+- `scripts/validate-drroc4-config.sh`
+- `vault/drroc4/SECRETS-TO-LOAD.md`
+- `vault/drroc4/load-secrets-template.sh`
+- `vault/drroc4/setup-vault-kubernetes-auth-template.sh`
+- `vault/drroc4/vault-policy-mas-drroc4.hcl`

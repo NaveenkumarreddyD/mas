@@ -1,0 +1,38 @@
+merge-key: "mas/drroc4/drmasapp"
+
+ibm_mas_masapp_manage_install:
+  # Confirm target Manage channel/version. Current discovered runtime was 8.7.24.
+  manage_channel: CHANGE_ME_MANAGE_CHANNEL
+
+  manage_workspace_id: drmaswks
+
+  # Current cluster showed server bundles including ui, cron, mea, and jms/standalonejms.
+  # Confirm required bundle sizing with the app team before deploy.
+  manage_server_bundle_size: CHANGE_ME_MANAGE_BUNDLE_SIZE
+
+  manage_components:
+    base: latest
+    health: latest
+    # Add only confirmed components:
+    # spatial: latest
+    # utilities: latest
+    # oracleadapter: latest
+    # hse: latest
+
+  # Current ManageWorkspace showed jdbc: system.
+  manage_jdbc_config_id: system
+
+  manage_db_schema: maximo
+  manage_db_tablespace: MAX_DATA
+  manage_db_index_tablespace: MAX_INDEX
+
+  manage_languages_default: EN
+  manage_server_timezone: America/Chicago
+
+  manage_crypto_key: "<path:secret/data/mas/drroc4/drmasapp/manage-crypto#cryptoKey>"
+  manage_cryptox_key: "<path:secret/data/mas/drroc4/drmasapp/manage-crypto#cryptoxKey>"
+
+  # Your current setup uses RWX persistent volumes for /jmsstore, /doclinks, /globaldir style mounts.
+  # Confirm exact attachment provider expected by IBM chart and current app requirements.
+  manage_attachments_provider: filestorage
+  manage_demodata: false

@@ -1,0 +1,35 @@
+merge-key: "mas/drroc4/drmasapp"
+
+# This file is where MAS configuration CRs are defined.
+# Your current cluster showed JDBCCfg resources:
+#   mas-drmasapp-core/drmasapp-jdbc-system
+#   mas-drmasapp-core/drmasapp-jdbc-wsapp-drmaswks-manage
+#
+# The active ManageWorkspace showed jdbc: system, so this template starts with a
+# system-scoped JDBC config and a wsapp example. Validate field names against the
+# IBM MAS GitOps 8.0.0 chart and your exported JDBCCfg YAML before sync.
+ibm_mas_suite_configs:
+  jdbc:
+    - id: system
+      scope: system
+      type: db2
+      username: "<path:secret/data/mas/drroc4/drmasapp/jdbc-system#username>"
+      password: "<path:secret/data/mas/drroc4/drmasapp/jdbc-system#password>"
+      jdbc_url: "<path:secret/data/mas/drroc4/drmasapp/jdbc-system#jdbc_url>"
+      ssl_enabled: true
+      ca: "<path:secret/data/mas/drroc4/drmasapp/jdbc-system#ca.crt>"
+
+  # If the exported JDBCCfg confirms Manage needs workspace/app-level JDBC, enable
+  # a wsapp config after confirming exact IBM chart fields.
+  # jdbc_wsapp:
+  #   - id: drmaswks-manage
+  #     scope: wsapp
+  #     workspace_id: drmaswks
+  #     application_id: manage
+  #     type: db2
+  #     username: "<path:secret/data/mas/drroc4/drmasapp/jdbc-wsapp-drmaswks-manage#username>"
+  #     password: "<path:secret/data/mas/drroc4/drmasapp/jdbc-wsapp-drmaswks-manage#password>"
+  #     jdbc_url: "<path:secret/data/mas/drroc4/drmasapp/jdbc-wsapp-drmaswks-manage#jdbc_url>"
+
+  # Mongo/SLS configs should be added here only after exporting current MongoCfg/SlsCfg
+  # or confirming that MAS Suite install will manage them.

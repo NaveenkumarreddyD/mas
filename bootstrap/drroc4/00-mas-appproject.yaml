@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: mas
+  namespace: openshift-gitops
+spec:
+  description: IBM MAS GitOps project for drroc4
+  sourceRepos:
+    - https://CHANGE_ME_GITLAB/mas-gitops/ibm-mas-gitops.git
+    - https://CHANGE_ME_GITLAB/mas-gitops/mas-gitops-config.git
+  destinations:
+    - namespace: '*'
+      server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'

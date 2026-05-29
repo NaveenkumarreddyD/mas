@@ -1,0 +1,21 @@
+merge-key: "mas/drroc4/drmasapp"
+
+ibm_mas_suite:
+  # Confirm MAS target channel/version from the current Ansible install or upgrade plan.
+  mas_channel: CHANGE_ME_MAS_CHANNEL
+  mas_domain: CHANGE_ME_MAS_DOMAIN
+  mas_operational_mode: production
+  mas_pod_template: BurstableQoSStandard
+
+  ibm_entitlement_key: "<path:secret/data/mas/drroc4/entitlement#image_pull_secret_b64>"
+
+  superuser:
+    username: "<path:secret/data/mas/drroc4/drmasapp/superuser#username>"
+    password: "<path:secret/data/mas/drroc4/drmasapp/superuser#password>"
+
+  # Use either corporate CA/cert-manager provided certs or manually provided route certs.
+  # Keep values in Vault, not Git.
+  certificates:
+    tls_crt: "<path:secret/data/mas/drroc4/drmasapp/certs#tls.crt>"
+    tls_key: "<path:secret/data/mas/drroc4/drmasapp/certs#tls.key>"
+    ca_bundle: "<path:secret/data/mas/drroc4/drmasapp/certs#ca.crt>"

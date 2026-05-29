@@ -1,0 +1,6 @@
+merge-key: "mas/drroc4/drmasapp"
+
+# Manage app workspace/application configs.
+# Keep empty until current Manage app configs are exported/confirmed.
+# IBM MAS GitOps recognizes this file, but do not invent app configs.
+ibm_mas_masapp_configs: {}
