@@ -1,155 +1,83 @@
-# Vault secrets required for MAS + Manage drroc4/drgitopsapp
+# Secrets to load into Vault for drroc4 / drgitopsapp
 
-Use Vault KV v2 with mount path `secret`.
+Use Vault KV v2 paths. Do not commit real secret values to Git.
 
-The MAS GitOps config uses these placeholder paths:
+## Required before MAS GitOps sync
 
-## 1. IBM entitlement image pull secret
-
-Path:
-
-```text
-secret/data/mas/drroc4/entitlement
-```
+### IBM entitlement pull secret
+Path: `secret/data/mas/drroc4/entitlement`
 
 Keys:
+- `image_pull_secret_b64` — base64-encoded Docker config JSON for `cp.icr.io`
 
-```json
-{
-  "image_pull_secret_b64": "CHANGE_ME_BASE64_DOCKERCONFIGJSON"
-}
-```
-
-The value must be base64 of Docker config JSON, not the raw entitlement token.
-
-## 2. MAS license file for SLS
-
-Path:
-
-```text
-secret/data/mas/drroc4/drgitopsapp/license
-```
+### MAS/SLS license
+Path: `secret/data/mas/drroc4/drgitopsapp/license`
 
 Keys:
+- `license_file` — MAS license file content, base64 or plain text as expected by the chart/AVP rendering path
+- `license_id` — optional license ID if your process tracks it
 
-```json
-{
-  "license_file": "CHANGE_ME_BASE64_OR_EXPECTED_LICENSE_CONTENT"
-}
-```
-
-Confirm whether the IBM chart expects base64 file content or plain value for your exact GitOps 8.0.0 chart.
-
-## 3. MAS superuser
-
-Path:
-
-```text
-secret/data/mas/drroc4/drgitopsapp/superuser
-```
+### External Oracle JDBC
+Path: `secret/data/mas/drroc4/drgitopsapp/jdbc-system`
 
 Keys:
+- `username` — current Ansible value was `maximo`
+- `password` — current Ansible value must be stored here, not in Git
+- `jdbc_url` — current Ansible URL pattern: `jdbc:oracle:thin:@//stl-dmasdb-21.lac1.biz:1521/DEMAS`
+- `ca.crt` — only required if Oracle TLS/CA is enabled
 
-```json
-{
-  "username": "CHANGE_ME",
-  "password": "CHANGE_ME"
-}
-```
-
-## 4. SLS registration
-
-Path:
-
-```text
-secret/data/mas/drroc4/drgitopsapp/sls
-```
+### SLS config
+Path: `secret/data/mas/drroc4/drgitopsapp/sls`
 
 Keys:
+- `registration_key`
+- `url`
+- `ca.crt`
 
-```json
-{
-  "registration_key": "CHANGE_ME"
-}
-```
-
-## 5. MAS route certificates
-
-Path:
-
-```text
-secret/data/mas/drroc4/drgitopsapp/certs
-```
+### SLS Mongo credentials
+Path: `secret/data/mas/drroc4/drgitopsapp/sls-mongo`
 
 Keys:
+- `username`
+- `password`
+- `ca.crt`
 
-```json
-{
-  "tls.crt": "CHANGE_ME_CERT_PEM",
-  "tls.key": "CHANGE_ME_PRIVATE_KEY_PEM",
-  "ca.crt": "CHANGE_ME_CA_BUNDLE_PEM"
-}
-```
-
-## 6. JDBC system config
-
-Path:
-
-```text
-secret/data/mas/drroc4/drgitopsapp/jdbc-system
-```
+### MAS Mongo config
+Path: `secret/data/mas/drroc4/drgitopsapp/mongo`
 
 Keys:
+- `username`
+- `password`
+- `host`
+- `ca.crt`
 
-```json
-{
-  "username": "CHANGE_ME_DB_USER",
-  "password": "CHANGE_ME_DB_PASSWORD",
-  "jdbc_url": "CHANGE_ME_JDBC_URL",
-  "ca.crt": "CHANGE_ME_DB_CA_CERT"
-}
-```
-
-This must be finalized from the existing `JDBCCfg` export.
-
-## 7. Optional wsapp JDBC config
-
-Only if the existing/current JDBCCfg confirms Manage should use wsapp-level JDBC:
-
-```text
-secret/data/mas/drroc4/drgitopsapp/jdbc-wsapp-drmaswks-manage
-```
+### MAS superuser
+Path: `secret/data/mas/drroc4/drgitopsapp/superuser`
 
 Keys:
+- `username`
+- `password`
 
-```json
-{
-  "username": "CHANGE_ME_DB_USER",
-  "password": "CHANGE_ME_DB_PASSWORD",
-  "jdbc_url": "CHANGE_ME_JDBC_URL",
-  "ca.crt": "CHANGE_ME_DB_CA_CERT"
-}
-```
-
-## 8. Manage crypto keys
-
-Path:
-
-```text
-secret/data/mas/drroc4/drgitopsapp/manage-crypto
-```
+### Manage crypto keys
+Path: `secret/data/mas/drroc4/drgitopsapp/manage-crypto`
 
 Keys:
+- `cryptoKey`
+- `cryptoxKey`
 
-```json
-{
-  "cryptoKey": "CHANGE_ME",
-  "cryptoxKey": "CHANGE_ME"
-}
-```
+For a fresh test instance, generate new values. For adoption of an existing database, use the existing keys.
 
-For migration/adoption, these must match the existing Manage database encryption keys. Do not generate new keys if you are connecting to an existing database.
+### Public route certificates, only if manual cert management is enabled
+Path: `secret/data/mas/drroc4/drgitopsapp/certs`
 
-## 9. Optional Mongo/SLS/SMTP/LDAP secrets
+Keys:
+- `tls.crt`
+- `tls.key`
+- `ca.crt`
 
-Add only after current `MongoCfg`, `SlsCfg`, SMTP, LDAP/IdP requirements are confirmed.
+## OpenShift secrets outside Vault
+
+Create these in `openshift-gitops` if required:
+- GitLab repo secret for `mas-gitops-config`
+- GitLab repo secret for internal IBM source repo mirror `ibm-mas-gitops`
+- `argocd-vault-plugin-credentials`

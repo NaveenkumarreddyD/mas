@@ -1,38 +1,21 @@
 merge-key: "mas/drroc4/drgitopsapp"
 
-ibm_mas_masapp_manage_install:
-  # Confirm target Manage channel/version. Current discovered runtime was 8.7.24.
-  manage_channel: CHANGE_ME_MANAGE_CHANNEL
+# IBM MAS GitOps 8.0.0 uses top-level key ibm_suite_app_manage_install for Manage.
+ibm_suite_app_manage_install:
+  ibm_entitlement_key: "<path:secret/data/mas/drroc4/entitlement#image_pull_secret_b64>"
+  mas_instance_id: drgitopsapp
+  mas_app_id: manage
+  mas_edition: essentials-maintenance
+  mas_app_namespace: mas-drgitopsapp-manage
+  mas_app_channel: "8.7.x"
+  mas_app_catalog_source: ibm-operator-catalog
+  mas_app_api_version: apps.mas.ibm.com/v1
+  mas_app_kind: ManageApp
+  mas_app_install_plan: Automatic
 
-  manage_workspace_id: drmaswks
+  # On-prem: keep IBM sample cloud/AWS sync hooks disabled unless IBM confirms otherwise for your support case.
+  run_sync_hooks: false
+  mas_manual_cert_mgmt: false
 
-  # Current cluster showed server bundles including ui, cron, mea, and jms/standalonejms.
-  # Confirm required bundle sizing with the app team before deploy.
-  manage_server_bundle_size: CHANGE_ME_MANAGE_BUNDLE_SIZE
-
-  manage_components:
-    base: latest
-    health: latest
-    # Add only confirmed components:
-    # spatial: latest
-    # utilities: latest
-    # oracleadapter: latest
-    # hse: latest
-
-  # Current ManageWorkspace showed jdbc: system.
-  manage_jdbc_config_id: system
-
-  manage_db_schema: maximo
-  manage_db_tablespace: MAX_DATA
-  manage_db_index_tablespace: MAX_INDEX
-
-  manage_languages_default: EN
-  manage_server_timezone: America/Chicago
-
-  manage_crypto_key: "<path:secret/data/mas/drroc4/drgitopsapp/manage-crypto#cryptoKey>"
-  manage_cryptox_key: "<path:secret/data/mas/drroc4/drgitopsapp/manage-crypto#cryptoxKey>"
-
-  # Your current setup uses RWX persistent volumes for /jmsstore, /doclinks, /globaldir style mounts.
-  # Confirm exact attachment provider expected by IBM chart and current app requirements.
-  manage_attachments_provider: filestorage
-  manage_demodata: false
+  # Operator-level ManageApp spec. Workspace/application activation is in ibm-mas-masapp-configs.yaml.
+  mas_app_spec: {}

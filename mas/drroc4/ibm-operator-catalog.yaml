@@ -1,7 +1,7 @@
 merge-key: "mas/drroc4"
 
 ibm_operator_catalog:
-  # Confirm this against your current/target MAS version and IBM MAS GitOps 8.0.0 chart docs.
-  mas_catalog_version: CHANGE_ME_MAS_CATALOG_VERSION
+  # From the current Ansible install input. Verify the catalog version against the desired MAS/Manage channels before first sync.
+  mas_catalog_version: v9-240625-amd64
   mas_catalog_image: icr.io/cpopen/ibm-maximo-operator-catalog
   ibm_entitlement_key: "<path:secret/data/mas/drroc4/entitlement#image_pull_secret_b64>"

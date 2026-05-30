@@ -24,7 +24,7 @@ Before production, export:
 
 ```powershell
 oc get jdbccfg drgitopsapp-jdbc-system -n mas-drgitopsapp-core -o yaml
-oc get jdbccfg drgitopsapp-jdbc-wsapp-drmaswks-manage -n mas-drgitopsapp-core -o yaml
+oc get jdbccfg drgitopsapp-jdbc-wsapp-drgitopswks-manage -n mas-drgitopsapp-core -o yaml
 ```
 
 Then map the confirmed fields into GitOps.

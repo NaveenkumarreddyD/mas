@@ -6,7 +6,11 @@
 - `bootstrap/drroc4/01-gitlab-config-repo-secret.example.yaml`
 - `bootstrap/drroc4/02-ibm-source-repo-secret.example.yaml`
 - `bootstrap/drroc4/03-account-root-drroc4.yaml`
+- `docs/ANSIBLE-TO-GITOPS-MAPPING.md`
 - `docs/DEPLOYMENT-STEPS.md`
+- `docs/FILE-MANIFEST.md`
+- `docs/IBM-8.0.0-VERIFICATION.md`
+- `docs/NAMING-DECISION.md`
 - `docs/SECRETS-CHECKLIST.md`
 - `docs/WHY-DB2U-OMITTED.md`
 - `mas/drroc4/drgitopsapp/ibm-mas-instance-base.yaml`
@@ -30,5 +34,3 @@
 - `vault/drroc4/load-secrets-template.sh`
 - `vault/drroc4/setup-vault-kubernetes-auth-template.sh`
 - `vault/drroc4/vault-policy-mas-drroc4.hcl`
-
-- `docs/NAMING-DECISION.md`

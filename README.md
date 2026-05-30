@@ -47,3 +47,13 @@ This repo contains only placeholders and examples. Do not commit:
 - TLS private keys
 - DB passwords
 - Manage crypto keys
+
+
+## Updated from current Ansible inputs
+
+This package maps the shared Ansible inputs to a new non-conflicting MAS GitOps instance `drgitopsapp` with workspace `drgitopswks`. External Oracle JDBC is used through Vault placeholders; Db2U files are omitted. See `docs/ANSIBLE-TO-GITOPS-MAPPING.md` and `vault/drroc4/SECRETS-TO-LOAD.md`.
+
+
+## IBM 8.0.0 rebuild note
+
+This package was regenerated to use IBM MAS GitOps 8.0.0 key names and chart value shapes. See `docs/IBM-8.0.0-VERIFICATION.md`.
