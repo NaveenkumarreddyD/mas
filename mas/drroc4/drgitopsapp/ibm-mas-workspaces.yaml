@@ -1,6 +1,0 @@
-merge-key: "mas/drroc4/drgitopsapp"
-
-ibm_mas_workspaces:
-  # IBM MAS GitOps 8.0.0 example uses mas_workspace_id and mas_workspace_name.
-  - mas_workspace_id: drgitopswks
-    mas_workspace_name: "drgitopswks"

@@ -1,7 +1,0 @@
-merge-key: "mas/drroc4"
-
-redhat_cert_manager:
-  channel: stable-v1
-  redhat_cert_manager_install_plan: Automatic
-  # On-prem: do not run IBM sample AWS Secrets Manager sync hooks.
-  run_sync_hooks: false
